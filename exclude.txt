@@ -1,0 +1,40 @@
+# exclude.txt — rsync excludes (one pattern per line)
+# Lines starting with # are comments.
+# Edit this file to control what is skipped during migration.
+# Tip: you can swap in a preset from presets/*.txt
+
+# AppleDouble / Finder metadata sidecars
+._*
+._.
+._
+.DS_Store
+
+# IMPORTANT: do NOT migrate user Library (this is where per-user state/corruption lives)
+Library
+
+# Common dev junk / caches
+node_modules
+.git
+.svn
+.hg
+vendor
+.cache
+Caches
+.npm
+.yarn
+.pnpm-store
+.composer
+.gradle
+.parcel-cache
+.next
+.nuxt
+.expo
+.terraform
+.vscode
+.idea
+
+# macOS system stuff
+.Spotlight-V100
+.Trashes
+.Trash
+.fseventsd

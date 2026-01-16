@@ -1,0 +1,23 @@
+# Preset: developer-heavy.txt
+# Skip Library, AppleDouble, and common dev/build caches.
+._*
+._.
+._
+.DS_Store
+Library
+node_modules
+vendor
+.cache
+Caches
+.npm
+.yarn
+.pnpm-store
+.composer
+.gradle
+.parcel-cache
+.next
+.nuxt
+.terraform
+.vscode
+.idea
+.git

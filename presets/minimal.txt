@@ -1,0 +1,7 @@
+# Preset: minimal.txt
+# Skip Library + macOS metadata only (max copy fidelity).
+._*
+._.
+._
+.DS_Store
+Library

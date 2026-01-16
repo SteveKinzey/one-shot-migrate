@@ -1,0 +1,7 @@
+# Preset: media-keeper.txt
+# Keep project dependency folders; still skip Library + AppleDouble.
+._*
+._.
+._
+.DS_Store
+Library

@@ -1,0 +1,31 @@
+name: Build and attach release zip
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-release-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create release zip
+        run: |
+          set -e
+          VERSION="${GITHUB_REF_NAME}"
+          ZIP="one-shot-migrate-${VERSION}.zip"
+          mkdir -p dist
+          zip -r "dist/${ZIP}" one-shot-migrate
+
+      - name: Create GitHub Release and upload asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          VERSION="${GITHUB_REF_NAME}"
+          ZIP="one-shot-migrate-${VERSION}.zip"
+          gh release create "${VERSION}" "dist/${ZIP}" --title "${VERSION}" --notes-file "one-shot-migrate/RELEASE_NOTES.md" || \
+          gh release upload "${VERSION}" "dist/${ZIP}" --clobber
